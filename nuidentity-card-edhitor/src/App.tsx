@@ -5,7 +5,7 @@ const App: React.FC = () => (
   <Container>
     <Row className="my-3">
       <Col className="text-center">
-        <h1>NUIDENTITY CARD EDITOR</h1>
+        <h1>ぬいぐるみ用名刺エディタ</h1>
       </Col>
     </Row>
   </Container>
