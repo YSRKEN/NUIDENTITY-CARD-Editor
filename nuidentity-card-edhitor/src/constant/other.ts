@@ -12,3 +12,5 @@ export type BackgroundType = '86' | '07';
 
 export const MESSAGE_WIDTH = 1076;
 export const MESSAGE_HEIGHT = 650;
+export const IMAGE_WIDTH = 327;
+export const IMAGE_HEIGHT = 385;

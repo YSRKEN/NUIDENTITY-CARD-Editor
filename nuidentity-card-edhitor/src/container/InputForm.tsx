@@ -1,6 +1,7 @@
 import React, { FormEvent, useContext } from "react";
 import { Form } from "react-bootstrap";
 import { ApplicationContext } from "service/store";
+import { resizeImage } from "service/utility";
 
 const InputForm: React.FC = () => {
   const {
@@ -21,18 +22,29 @@ const InputForm: React.FC = () => {
   const onChangeTwitterName = (e: FormEvent<any>) => dispatch({ type: 'setNuiTwitterName', message: e.currentTarget.value });
   const onChangeMemo = (e: FormEvent<any>) => dispatch({ type: 'setNuiMemo', message: e.currentTarget.value });
   const onChangeBackgroundImage = (e: FormEvent<any>) => dispatch({ type: 'setBackgroundType', message: e.currentTarget.value });
-  const onChangeNuiImage = (e: FormEvent<any>) => {
-    const fileList: FileList = (e.target as any).files;
-    const reader = new FileReader();
-    reader.onload = () => {
-      const dataUrl = reader.result;
-      if (dataUrl !== null) {
-        dispatch({ type: 'setNuiImage', message: dataUrl as string });
-      }
+  const onChangeNuiImage = async (e: FormEvent<any>) => {
+    const readImageData = (): Promise<string> => {
+      return new Promise((res) => {
+        const fileList: FileList = (e.target as any).files;
+        const reader = new FileReader();
+        reader.onload = () => {
+          const dataUrl = reader.result;
+          if (dataUrl !== null) {
+            res(dataUrl as string);
+          } else {
+            res('');
+          }
+        };
+        if (fileList.length >= 1) {
+          reader.readAsDataURL(fileList[0]);
+        } else {
+          res('');
+        }
+      });
     };
-    if (fileList.length >= 1) {
-      reader.readAsDataURL(fileList[0]);
-    }
+    const dataUrl = await readImageData();
+    const dataUrl2 = await resizeImage(dataUrl);
+    dispatch({ type: 'setNuiImage', message: dataUrl2 });
   };
 
   return <Form>

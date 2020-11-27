@@ -4,7 +4,7 @@ import { ApplicationContext } from "service/store";
 import useImage from "use-image";
 import card86 from 'asset/nuid_temple_86.png';
 import card07 from 'asset/nuid_temple_07.png';
-import { MESSAGE_HEIGHT, MESSAGE_WIDTH } from "constant/other";
+import { IMAGE_HEIGHT, IMAGE_WIDTH, MESSAGE_HEIGHT, MESSAGE_WIDTH } from "constant/other";
 import { Button, Form } from "react-bootstrap";
 import { Stage as StageType } from 'konva/types/Stage';
 
@@ -63,7 +63,7 @@ const CardView: React.FC = () => {
         <Text text={nuiMastersName} fontSize={32} x={40} y={360} fontStyle="bold" />
         <Text text={nuiTwitterName} fontSize={32} x={340} y={360} fontStyle="bold" />
         <Text text={nuiMemo} fontSize={32} x={40} y={460} fontStyle="bold" />
-        <Image image={nuiImageData} x={719} y={138} width={327} height={385} />
+        <Image image={nuiImageData} x={719} y={138} width={IMAGE_WIDTH} height={IMAGE_HEIGHT} />
       </Layer>
     </Stage>
   </>;

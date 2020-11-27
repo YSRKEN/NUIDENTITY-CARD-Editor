@@ -10,8 +10,8 @@ export const useApplicationStore = (): ApplicationStore => {
   const [nuiDepot, setNuiDepot] = useState(loadData('nuiDepot', '車両基地名'));
   const [nuiMastersName, setNuiMastersName] = useState(loadData('nuiMastersName', 'マスターの名称'));
   const [nuiTwitterName, setNuiTwitterName] = useState(loadData('nuiTwitterName', '@screen_name'));
-  const [nuiMemo, setNuiMemo] = useState(loadData('nuiRnuiMemoegistration', 'ここはメモ欄です'));
-  const [nuiImage, setNuiImage] = useState('');
+  const [nuiMemo, setNuiMemo] = useState(loadData('nuiMemo', 'ここはメモ欄です'));
+  const [nuiImage, setNuiImage] = useState(loadData('nuiImage', ''));
   const [backgroundType, setBackgroundType] = useState<BackgroundType>(loadData<BackgroundType>('backgroundType', '86'));
 
   // 自動セーブ
@@ -21,6 +21,7 @@ export const useApplicationStore = (): ApplicationStore => {
   useEffect(() => saveData('nuiMastersName', nuiMastersName), [nuiMastersName]);
   useEffect(() => saveData('nuiTwitterName', nuiTwitterName), [nuiTwitterName]);
   useEffect(() => saveData('nuiMemo', nuiMemo), [nuiMemo]);
+  useEffect(() => saveData('nuiImage', nuiImage), [nuiImage]);
   useEffect(() => saveData('backgroundType', backgroundType), [backgroundType]);
 
   // dispatch
