@@ -11,6 +11,7 @@ export const useApplicationStore = (): ApplicationStore => {
   const [nuiMastersName, setNuiMastersName] = useState(loadData('nuiMastersName', 'マスターの名称'));
   const [nuiTwitterName, setNuiTwitterName] = useState(loadData('nuiTwitterName', '@screen_name'));
   const [nuiMemo, setNuiMemo] = useState(loadData('nuiRnuiMemoegistration', 'ここはメモ欄です'));
+  const [nuiImage, setNuiImage] = useState('');
   const [backgroundType, setBackgroundType] = useState<BackgroundType>(loadData<BackgroundType>('backgroundType', '86'));
 
   // 自動セーブ
@@ -43,6 +44,9 @@ export const useApplicationStore = (): ApplicationStore => {
       case 'setNuiMemo':
         setNuiMemo(action.message as string);
         break;
+      case 'setNuiImage':
+        setNuiImage(action.message as string);
+        break;
       case 'setBackgroundType':
         setBackgroundType(action.message as BackgroundType);
         break;
@@ -56,6 +60,7 @@ export const useApplicationStore = (): ApplicationStore => {
     nuiMastersName,
     nuiTwitterName,
     nuiMemo,
+    nuiImage,
     backgroundType,
     dispatch
   };

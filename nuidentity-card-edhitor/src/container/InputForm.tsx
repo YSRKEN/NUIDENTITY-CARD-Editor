@@ -21,6 +21,19 @@ const InputForm: React.FC = () => {
   const onChangeTwitterName = (e: FormEvent<any>) => dispatch({ type: 'setNuiTwitterName', message: e.currentTarget.value });
   const onChangeMemo = (e: FormEvent<any>) => dispatch({ type: 'setNuiMemo', message: e.currentTarget.value });
   const onChangeBackgroundImage = (e: FormEvent<any>) => dispatch({ type: 'setBackgroundType', message: e.currentTarget.value });
+  const onChangeNuiImage = (e: FormEvent<any>) => {
+    const fileList: FileList = (e.target as any).files;
+    const reader = new FileReader();
+    reader.onload = () => {
+      const dataUrl = reader.result;
+      if (dataUrl !== null) {
+        dispatch({ type: 'setNuiImage', message: dataUrl as string });
+      }
+    };
+    if (fileList.length >= 1) {
+      reader.readAsDataURL(fileList[0]);
+    }
+  };
 
   return <Form>
     <Form.Group>
@@ -53,6 +66,9 @@ const InputForm: React.FC = () => {
         <option value="86">ハチロク</option>
         <option value="07">れいな</option>
       </Form.Control>
+    </Form.Group>
+    <Form.Group>
+      <Form.File label="画像ファイルを指定" onChange={onChangeNuiImage} />
     </Form.Group>
   </Form>;
 };

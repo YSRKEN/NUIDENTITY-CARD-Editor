@@ -5,6 +5,7 @@ export type ActionType = ''
   | 'setNuiMastersName'
   | 'setNuiTwitterName'
   | 'setNuiMemo'
+  | 'setNuiImage'
   | 'setBackgroundType';
 
 export type BackgroundType = '86' | '07';

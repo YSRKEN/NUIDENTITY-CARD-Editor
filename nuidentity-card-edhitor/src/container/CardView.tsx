@@ -16,11 +16,13 @@ const CardView: React.FC = () => {
     nuiMastersName,
     nuiTwitterName,
     nuiMemo,
+    nuiImage,
     backgroundType,
   } = useContext(ApplicationContext);
 
   const [image86] = useImage(card86);
   const [image07] = useImage(card07);
+  const [nuiImageData] = useImage(nuiImage);
   const stageRef = useRef<StageType>(null);
 
   const imageData = backgroundType === '86' ? image86 : image07;
@@ -61,6 +63,7 @@ const CardView: React.FC = () => {
         <Text text={nuiMastersName} fontSize={32} x={40} y={360} fontStyle="bold" />
         <Text text={nuiTwitterName} fontSize={32} x={340} y={360} fontStyle="bold" />
         <Text text={nuiMemo} fontSize={32} x={40} y={460} fontStyle="bold" />
+        <Image image={nuiImageData} x={719} y={138} width={327} height={385} />
       </Layer>
     </Stage>
   </>;

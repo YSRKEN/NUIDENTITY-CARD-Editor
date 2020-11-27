@@ -8,6 +8,7 @@ export interface ApplicationStore {
   nuiMastersName: string;
   nuiTwitterName: string;
   nuiMemo: string;
+  nuiImage: string;
   backgroundType: BackgroundType;
   dispatch: (action: Action) => void;
 }
