@@ -7,7 +7,8 @@ const MainForm: React.FC = () => (
   <Container>
     <Row className="my-3">
       <Col className="text-center">
-        <h1>ぬいぐるみ用名刺エディタ</h1>
+        <h1 className="d-none d-sm-inline">ぬいぐるみ用名刺エディタ</h1>
+        <h4 className="d-inline d-sm-none">ぬいぐるみ用名刺エディタ</h4>
       </Col>
     </Row>
     <Row className="my-3">
