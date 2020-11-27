@@ -14,8 +14,9 @@ const MainForm: React.FC = () => (
     <Row className="my-3">
       <Col className="text-center">
         <span className="d-inline-block mr-3">Ver.1.0.0</span>
-        <span className="d-inline-block mr-3"><a href="https://github.com/YSRKEN/NUIDENTITY-CARD-Editor" rel="noreferrer" target="_blank">GitHub</a> </span>
-        <span><a href="https://twitter.com/YSRKEN" rel="noreferrer" target="_blank">作者のTwitter</a></span>
+        <span className="d-inline-block mr-3"><a href="https://github.com/YSRKEN/NUIDENTITY-CARD-Editor" rel="noreferrer" target="_blank">GitHub</a></span>
+        <span className="d-inline-block mr-3"><a href="https://twitter.com/sin_kou_hyou/status/985448725026762752" rel="noreferrer" target="_blank">背景テンプレ画像の出典</a></span>
+        <span><a href="https://twitter.com/YSRKEN" rel="noreferrer" target="_blank">ツール作者のTwitter</a></span>
       </Col>
     </Row>
     <Row className="my-3">
