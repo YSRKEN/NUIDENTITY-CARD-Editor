@@ -1,5 +1,5 @@
 import React from "react";
-import { Col, Container, Row } from "react-bootstrap";
+import { Col, Container, Row, Tab, Tabs } from "react-bootstrap";
 import InputForm from "container/InputForm";
 import CardView from "container/CardView";
 
@@ -12,12 +12,14 @@ const MainForm: React.FC = () => (
     </Row>
     <Row className="my-3">
       <Col>
-        <InputForm />
-      </Col>
-    </Row>
-    <Row className="my-3">
-      <Col>
-        <CardView />
+        <Tabs defaultActiveKey="option" id="main-tab" transition={false}>
+          <Tab className="border-bottom border-left border-right p-3" eventKey="option" title="設定">
+            <InputForm />
+          </Tab>
+          <Tab className="border-bottom border-left border-right p-3" eventKey="view" title="プレビュー">
+            <CardView />
+          </Tab>
+        </Tabs>
       </Col>
     </Row>
   </Container>
