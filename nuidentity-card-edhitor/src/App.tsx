@@ -1,14 +1,11 @@
+import MainForm from 'container/MainForm';
 import React from 'react';
-import { Col, Container, Row } from 'react-bootstrap';
+import { ApplicationContext, useApplicationStore } from 'service/store';
 
 const App: React.FC = () => (
-  <Container>
-    <Row className="my-3">
-      <Col className="text-center">
-        <h1>ぬいぐるみ用名刺エディタ</h1>
-      </Col>
-    </Row>
-  </Container>
+  <ApplicationContext.Provider value={useApplicationStore()}>
+    <MainForm />
+  </ApplicationContext.Provider>
 );
 
 export default App;
