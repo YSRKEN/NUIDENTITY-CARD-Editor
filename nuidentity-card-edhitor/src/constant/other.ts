@@ -8,3 +8,5 @@ export type ActionType = ''
   | 'setBackgroundType';
 
 export type BackgroundType = '86' | '07';
+
+export const MESSAGE_WIDTH = 1076;
