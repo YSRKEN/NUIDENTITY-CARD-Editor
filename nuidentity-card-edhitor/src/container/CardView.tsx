@@ -54,7 +54,8 @@ const CardView: React.FC = () => {
         <Button className="mr-3" onClick={save}>保存</Button>
       </Form.Group>
     </Form>
-    <Stage ref={stageRef} scale={{ x: scale, y: scale }} width={MESSAGE_WIDTH * scale} height={MESSAGE_HEIGHT * scale} className="mx-auto">
+    <Stage ref={stageRef} scale={{ x: scale, y: scale }} width={MESSAGE_WIDTH * scale} height={MESSAGE_HEIGHT * scale} className="mx-auto"
+      onClick={save} onTap={save}>
       <Layer>
         <Image image={imageData} x={0} y={0} width={1076} height={650} />
         <Text text={nuiRegistration} fontSize={48} x={40} y={130} fontStyle="bold" />
