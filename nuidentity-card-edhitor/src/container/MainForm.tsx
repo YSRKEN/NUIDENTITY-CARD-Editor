@@ -7,7 +7,16 @@ import card07 from 'asset/nuid_temple_07.png';
 import useImage from "use-image";
 
 const MainForm: React.FC = () => {
-  const { nuiRegistration, backgroundType, dispatch } = useContext(ApplicationContext);
+  const {
+    nuiRegistration,
+    nuiName,
+    nuiDepot,
+    nuiMastersName,
+    nuiTwitterName,
+    nuiMemo,
+    backgroundType,
+    dispatch
+  } = useContext(ApplicationContext);
 
   const [image86] = useImage(card86);
   const [image07] = useImage(card07);
@@ -15,6 +24,11 @@ const MainForm: React.FC = () => {
   const imageData = backgroundType === '86' ? image86 : image07;
 
   const onChangeRegistration = (e: FormEvent<any>) => dispatch({ type: 'setNuiRegistration', message: e.currentTarget.value });
+  const onChangeName = (e: FormEvent<any>) => dispatch({ type: 'setNuiName', message: e.currentTarget.value });
+  const onChangeDepot = (e: FormEvent<any>) => dispatch({ type: 'setNuiDepot', message: e.currentTarget.value });
+  const onChangeMastersName = (e: FormEvent<any>) => dispatch({ type: 'setNuiMastersName', message: e.currentTarget.value });
+  const onChangeTwitterName = (e: FormEvent<any>) => dispatch({ type: 'setNuiTwitterName', message: e.currentTarget.value });
+  const onChangeMemo = (e: FormEvent<any>) => dispatch({ type: 'setNuiMemo', message: e.currentTarget.value });
   const onChangeBackgroundImage = (e: FormEvent<any>) => dispatch({ type: 'setBackgroundType', message: e.currentTarget.value });
 
   return (
@@ -32,6 +46,27 @@ const MainForm: React.FC = () => {
               <Form.Control value={nuiRegistration} onChange={onChangeRegistration} />
             </Form.Group>
             <Form.Group>
+              <Form.Label>ぬいの名称</Form.Label>
+              <Form.Control value={nuiName} onChange={onChangeName} />
+            </Form.Group>
+            <Form.Group>
+              <Form.Label>車両基地名</Form.Label>
+              <Form.Control value={nuiDepot} onChange={onChangeDepot} />
+            </Form.Group>
+            <Form.Group>
+              <Form.Label>マスターの名称</Form.Label>
+              <Form.Control value={nuiMastersName} onChange={onChangeMastersName} />
+            </Form.Group>
+            <Form.Group>
+              <Form.Label>@スクリーンネーム</Form.Label>
+              <Form.Control value={nuiTwitterName} onChange={onChangeTwitterName} />
+            </Form.Group>
+            <Form.Group>
+              <Form.Label>メモ欄</Form.Label>
+              <Form.Control value={nuiMemo} onChange={onChangeMemo} />
+            </Form.Group>
+
+            <Form.Group>
               <Form.Label>背景の種類</Form.Label>
               <Form.Control value={backgroundType} onChange={onChangeBackgroundImage} as="select">
                 <option value="86">ハチロク</option>
@@ -47,11 +82,11 @@ const MainForm: React.FC = () => {
             <Layer>
               <Image image={imageData} x={0} y={0} width={1076} height={650} />
               <Text text={nuiRegistration} fontSize={48} x={40} y={130} fontStyle="bold" />
-              <Text text="ぬいの名称" fontSize={32} x={40} y={260} fontStyle="bold" />
-              <Text text="車両基地名" fontSize={32} x={340} y={260} fontStyle="bold" />
-              <Text text="マスターの名称" fontSize={32} x={40} y={360} fontStyle="bold" />
-              <Text text="@screen_name" fontSize={32} x={340} y={360} fontStyle="bold" />
-              <Text text="ここはメモ欄です" fontSize={32} x={40} y={460} fontStyle="bold" />
+              <Text text={nuiName} fontSize={32} x={40} y={260} fontStyle="bold" />
+              <Text text={nuiDepot} fontSize={32} x={340} y={260} fontStyle="bold" />
+              <Text text={nuiMastersName} fontSize={32} x={40} y={360} fontStyle="bold" />
+              <Text text={nuiTwitterName} fontSize={32} x={340} y={360} fontStyle="bold" />
+              <Text text={nuiMemo} fontSize={32} x={40} y={460} fontStyle="bold" />
             </Layer>
           </Stage>
         </Col>
