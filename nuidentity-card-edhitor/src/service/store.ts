@@ -1,4 +1,4 @@
-import { BackgroundType } from "constant/other";
+import { BackgroundType, ResizerType } from "constant/other";
 import { Action } from "model/action";
 import { ApplicationStore } from "model/store";
 import { createContext, useEffect, useState } from "react";
@@ -13,6 +13,7 @@ export const useApplicationStore = (): ApplicationStore => {
   const [nuiMemo, setNuiMemo] = useState(loadData('nuiMemo', 'ここはメモ欄です'));
   const [nuiImage, setNuiImage] = useState(loadData('nuiImage', ''));
   const [backgroundType, setBackgroundType] = useState<BackgroundType>(loadData<BackgroundType>('backgroundType', '86'));
+  const [resizerType, setResizerType] = useState<ResizerType>(loadData<ResizerType>('resizerType', 'inside'));
 
   // 自動セーブ
   useEffect(() => saveData('nuiRegistration', nuiRegistration), [nuiRegistration]);
@@ -23,6 +24,7 @@ export const useApplicationStore = (): ApplicationStore => {
   useEffect(() => saveData('nuiMemo', nuiMemo), [nuiMemo]);
   useEffect(() => saveData('nuiImage', nuiImage), [nuiImage]);
   useEffect(() => saveData('backgroundType', backgroundType), [backgroundType]);
+  useEffect(() => saveData('resizerType', resizerType), [resizerType]);
 
   // dispatch
   const dispatch = (action: Action) => {
@@ -51,6 +53,9 @@ export const useApplicationStore = (): ApplicationStore => {
       case 'setBackgroundType':
         setBackgroundType(action.message as BackgroundType);
         break;
+      case 'setResizerType':
+        setResizerType(action.message as ResizerType);
+        break;
     }
   };
 
@@ -63,6 +68,7 @@ export const useApplicationStore = (): ApplicationStore => {
     nuiMemo,
     nuiImage,
     backgroundType,
+    resizerType,
     dispatch
   };
 };

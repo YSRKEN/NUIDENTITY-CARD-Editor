@@ -12,6 +12,7 @@ const InputForm: React.FC = () => {
     nuiTwitterName,
     nuiMemo,
     backgroundType,
+    resizerType,
     dispatch
   } = useContext(ApplicationContext);
 
@@ -22,6 +23,8 @@ const InputForm: React.FC = () => {
   const onChangeTwitterName = (e: FormEvent<any>) => dispatch({ type: 'setNuiTwitterName', message: e.currentTarget.value });
   const onChangeMemo = (e: FormEvent<any>) => dispatch({ type: 'setNuiMemo', message: e.currentTarget.value });
   const onChangeBackgroundImage = (e: FormEvent<any>) => dispatch({ type: 'setBackgroundType', message: e.currentTarget.value });
+  const onChangeResizerType = (e: FormEvent<any>) => dispatch({ type: 'setResizerType', message: e.currentTarget.value });
+
   const onChangeNuiImage = async (e: FormEvent<any>) => {
     const readImageData = (): Promise<string> => {
       return new Promise((res) => {
@@ -43,7 +46,7 @@ const InputForm: React.FC = () => {
       });
     };
     const dataUrl = await readImageData();
-    const dataUrl2 = await resizeImage(dataUrl);
+    const dataUrl2 = await resizeImage(dataUrl, resizerType);
     dispatch({ type: 'setNuiImage', message: dataUrl2 });
   };
 
@@ -77,6 +80,16 @@ const InputForm: React.FC = () => {
       <Form.Control value={backgroundType} onChange={onChangeBackgroundImage} as="select">
         <option value="86">ハチロク</option>
         <option value="07">れいな</option>
+      </Form.Control>
+    </Form.Group>
+    <Form.Group>
+      <Form.Label>読み込み時の画像のリサイズ方法</Form.Label>
+      <Form.Control value={resizerType} onChange={onChangeResizerType} as="select">
+        <option value="force">縦横比を無視して縦・横を合わせる</option>
+        <option value="width">横の幅を合わせる</option>
+        <option value="height">縦の幅を合わせる</option>
+        <option value="inside">枠に対して内接するように合わせる</option>
+        <option value="outside">枠に対して外接するように合わせる</option>
       </Form.Control>
     </Form.Group>
     <Form.Group>

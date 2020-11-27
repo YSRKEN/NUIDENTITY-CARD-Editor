@@ -6,9 +6,11 @@ export type ActionType = ''
   | 'setNuiTwitterName'
   | 'setNuiMemo'
   | 'setNuiImage'
-  | 'setBackgroundType';
+  | 'setBackgroundType'
+  | 'setResizerType';
 
 export type BackgroundType = '86' | '07';
+export type ResizerType = 'force' | 'width' | 'height' | 'inside' | 'outside';
 
 export const MESSAGE_WIDTH = 1076;
 export const MESSAGE_HEIGHT = 650;

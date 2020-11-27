@@ -1,4 +1,4 @@
-import { BackgroundType } from "constant/other";
+import { BackgroundType, ResizerType } from "constant/other";
 import { Action } from "model/action";
 
 export interface ApplicationStore {
@@ -10,5 +10,6 @@ export interface ApplicationStore {
   nuiMemo: string;
   nuiImage: string;
   backgroundType: BackgroundType;
+  resizerType: ResizerType;
   dispatch: (action: Action) => void;
 }
