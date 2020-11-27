@@ -1,5 +1,5 @@
 import React, { useContext, useRef } from "react";
-import { Image, Layer, Stage, Text } from "react-konva";
+import { Image, Layer, Rect, Stage, Text } from "react-konva";
 import { ApplicationContext } from "service/store";
 import useImage from "use-image";
 import card86 from 'asset/nuid_temple_86.png';
@@ -57,6 +57,8 @@ const CardView: React.FC = () => {
     <Stage ref={stageRef} scale={{ x: scale, y: scale }} width={MESSAGE_WIDTH * scale} height={MESSAGE_HEIGHT * scale} className="mx-auto"
       onClick={save} onTap={save}>
       <Layer>
+        <Rect fill='white' x={719} y={138} width={IMAGE_WIDTH} height={IMAGE_HEIGHT} />
+        <Image image={nuiImageData} x={719} y={138} width={IMAGE_WIDTH} height={IMAGE_HEIGHT} />
         <Image image={imageData} x={0} y={0} width={1076} height={650} />
         <Text text={nuiRegistration} fontSize={48} x={40} y={130} fontStyle="bold" />
         <Text text={nuiName} fontSize={32} x={40} y={260} fontStyle="bold" />
@@ -64,7 +66,6 @@ const CardView: React.FC = () => {
         <Text text={nuiMastersName} fontSize={32} x={40} y={360} fontStyle="bold" />
         <Text text={nuiTwitterName} fontSize={32} x={340} y={360} fontStyle="bold" />
         <Text text={nuiMemo} fontSize={32} x={40} y={460} fontStyle="bold" />
-        <Image image={nuiImageData} x={719} y={138} width={IMAGE_WIDTH} height={IMAGE_HEIGHT} />
       </Layer>
     </Stage>
   </>;
