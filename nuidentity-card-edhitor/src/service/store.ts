@@ -1,17 +1,28 @@
 import { BackgroundType } from "constant/other";
 import { Action } from "model/action";
 import { ApplicationStore } from "model/store";
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
+import { loadData, saveData } from "service/utility";
 
 export const useApplicationStore = (): ApplicationStore => {
-  const [nuiRegistration, setNuiRegistration] = useState('8620');
-  const [nuiName, setNuiName] = useState('ぬいの名称');
-  const [nuiDepot, setNuiDepot] = useState('車両基地名');
-  const [nuiMastersName, setNuiMastersName] = useState('マスターの名称');
-  const [nuiTwitterName, setNuiTwitterName] = useState('@screen_name');
-  const [nuiMemo, setNuiMemo] = useState('ここはメモ欄です');
-  const [backgroundType, setBackgroundType] = useState<BackgroundType>('86');
+  const [nuiRegistration, setNuiRegistration] = useState(loadData('nuiRegistration', '8620'));
+  const [nuiName, setNuiName] = useState(loadData('nuiName', 'ぬいの名称'));
+  const [nuiDepot, setNuiDepot] = useState(loadData('nuiDepot', '車両基地名'));
+  const [nuiMastersName, setNuiMastersName] = useState(loadData('nuiMastersName', 'マスターの名称'));
+  const [nuiTwitterName, setNuiTwitterName] = useState(loadData('nuiTwitterName', '@screen_name'));
+  const [nuiMemo, setNuiMemo] = useState(loadData('nuiRnuiMemoegistration', 'ここはメモ欄です'));
+  const [backgroundType, setBackgroundType] = useState<BackgroundType>(loadData<BackgroundType>('backgroundType', '86'));
 
+  // 自動セーブ
+  useEffect(() => saveData('nuiRegistration', nuiRegistration), [nuiRegistration]);
+  useEffect(() => saveData('nuiName', nuiName), [nuiName]);
+  useEffect(() => saveData('nuiDepot', nuiDepot), [nuiDepot]);
+  useEffect(() => saveData('nuiMastersName', nuiMastersName), [nuiMastersName]);
+  useEffect(() => saveData('nuiTwitterName', nuiTwitterName), [nuiTwitterName]);
+  useEffect(() => saveData('nuiMemo', nuiMemo), [nuiMemo]);
+  useEffect(() => saveData('backgroundType', backgroundType), [backgroundType]);
+
+  // dispatch
   const dispatch = (action: Action) => {
     switch (action.type) {
       case 'setNuiRegistration':
