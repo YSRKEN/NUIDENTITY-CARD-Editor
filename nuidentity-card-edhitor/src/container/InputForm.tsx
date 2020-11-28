@@ -80,6 +80,7 @@ const InputForm: React.FC = () => {
       <Form.Control value={backgroundType} onChange={onChangeBackgroundImage} as="select">
         <option value="86">ハチロク</option>
         <option value="07">れいな</option>
+        <option value="12">すずしろ</option>
       </Form.Control>
     </Form.Group>
     <Form.Group>

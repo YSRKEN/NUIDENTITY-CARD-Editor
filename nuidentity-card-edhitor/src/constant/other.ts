@@ -9,7 +9,7 @@ export type ActionType = ''
   | 'setBackgroundType'
   | 'setResizerType';
 
-export type BackgroundType = '86' | '07';
+export type BackgroundType = '86' | '07' | '12';
 export type ResizerType = 'force' | 'width' | 'height' | 'inside' | 'outside';
 
 export const MESSAGE_WIDTH = 1076;
