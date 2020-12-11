@@ -1,6 +1,6 @@
 import { BackgroundType, DEFAULT_FONT_OPTION, ResizerType } from "constant/other";
 import { Action } from "model/action";
-import FontOption from "model/FontOption";
+import { FontOption, FontOptionImpl } from "model/FontOption";
 import { ApplicationStore } from "model/store";
 import { createContext, useEffect, useState } from "react";
 import { loadData, saveData } from "service/utility";
@@ -59,6 +59,11 @@ export const useApplicationStore = (): ApplicationStore => {
       case 'setResizerType':
         setResizerType(action.message as ResizerType);
         break;
+      case 'setBoldFlg':
+        const temp: { [key: string]: FontOptionImpl } = JSON.parse(JSON.stringify(fontOption));
+        temp[action.message as string].boldFlg = !temp[action.message as string].boldFlg;
+        setFontOption((temp as any) as FontOption);
+        break;
     }
   };
 
@@ -72,6 +77,7 @@ export const useApplicationStore = (): ApplicationStore => {
     nuiImage,
     backgroundType,
     resizerType,
+    fontOption,
     dispatch
   };
 };

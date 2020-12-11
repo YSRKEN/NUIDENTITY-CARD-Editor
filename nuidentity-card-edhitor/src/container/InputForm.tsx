@@ -46,12 +46,12 @@ const InputForm: React.FC = () => {
   };
 
   return <Form>
-    <TextForm label="車体番号" value={nuiRegistration} dataKey="NuiRegistration" />
-    <TextForm label="ぬいの名称" value={nuiName} dataKey="NuiName" />
-    <TextForm label="車両基地名" value={nuiDepot} dataKey="NuiDepot" />
-    <TextForm label="マスターの名称" value={nuiMastersName} dataKey="NuiMastersName" />
-    <TextForm label="@スクリーンネーム" value={nuiTwitterName} dataKey="NuiTwitterName" />
-    <TextForm label="メモ欄" value={nuiMemo} dataKey="NuiMemo" />
+    <TextForm label="車体番号" value={nuiRegistration} dataKey="NuiRegistration" dataKey2="registration" />
+    <TextForm label="ぬいの名称" value={nuiName} dataKey="NuiName" dataKey2="name" />
+    <TextForm label="車両基地名" value={nuiDepot} dataKey="NuiDepot" dataKey2="depot" />
+    <TextForm label="マスターの名称" value={nuiMastersName} dataKey="NuiMastersName" dataKey2="mastersName" />
+    <TextForm label="@スクリーンネーム" value={nuiTwitterName} dataKey="NuiTwitterName" dataKey2="twitterName" />
+    <TextForm label="メモ欄" value={nuiMemo} dataKey="NuiMemo" dataKey2="memo" />
     <Form.Group>
       <Form.Label>背景の種類</Form.Label>
       <Form.Control value={backgroundType} onChange={onChangeBackgroundImage} as="select">

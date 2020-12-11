@@ -1,4 +1,5 @@
 import { ActionType } from "constant/other";
+import { FontOptionImpl } from "model/FontOption";
 import { FormEvent, useContext } from "react";
 import { Form } from "react-bootstrap";
 import { ApplicationContext } from "service/store";
@@ -7,14 +8,19 @@ const TextForm: React.FC<{
   label: string;
   value: string;
   dataKey: string;
-}> = ({ label, value, dataKey }) => {
-  const { dispatch } = useContext(ApplicationContext);
+  dataKey2: string;
+}> = ({ label, value, dataKey, dataKey2 }) => {
+  const { fontOption, dispatch } = useContext(ApplicationContext);
 
-  const onChange = (e: FormEvent<any>) => dispatch({ type: ('set' + dataKey) as ActionType, message: e.currentTarget.value });
+  const onChangeText = (e: FormEvent<any>) => dispatch({ type: ('set' + dataKey) as ActionType, message: e.currentTarget.value });
+  const onChangeBoldFlg = () => dispatch({ type: 'setBoldFlg', message: dataKey2 });
+
+  const boldFlg = ((fontOption as any) as { [key: string]: FontOptionImpl })[dataKey2].boldFlg;
 
   return <Form.Group>
     <Form.Label>{label}</Form.Label>
-    <Form.Control value={value} onChange={onChange} />
+    <Form.Control value={value} onChange={onChangeText} />
+    <Form.Check label="太字にする" checked={boldFlg} onChange={onChangeBoldFlg} />
   </Form.Group>;
 };
 

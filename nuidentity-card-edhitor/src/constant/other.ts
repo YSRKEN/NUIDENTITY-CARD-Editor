@@ -1,4 +1,4 @@
-import FontOption from "model/FontOption";
+import { FontOption } from "model/FontOption";
 
 export type ActionType = ''
   | 'setNuiRegistration'
@@ -9,7 +9,8 @@ export type ActionType = ''
   | 'setNuiMemo'
   | 'setNuiImage'
   | 'setBackgroundType'
-  | 'setResizerType';
+  | 'setResizerType'
+  | 'setBoldFlg';
 
 export type BackgroundType = '86' | '07' | '12';
 export type ResizerType = 'force' | 'width' | 'height' | 'inside' | 'outside';
@@ -20,6 +21,7 @@ export const IMAGE_WIDTH = 327;
 export const IMAGE_HEIGHT = 385;
 
 export const DEFAULT_FONT_OPTION: FontOption = {
+  registration: { boldFlg: true, largeFlg: false },
   name: { boldFlg: true, largeFlg: false },
   depot: { boldFlg: true, largeFlg: false },
   mastersName: { boldFlg: true, largeFlg: false },
