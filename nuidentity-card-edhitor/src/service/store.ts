@@ -59,11 +59,18 @@ export const useApplicationStore = (): ApplicationStore => {
       case 'setResizerType':
         setResizerType(action.message as ResizerType);
         break;
-      case 'setBoldFlg':
+      case 'setBoldFlg': {
         const temp: { [key: string]: FontOptionImpl } = JSON.parse(JSON.stringify(fontOption));
         temp[action.message as string].boldFlg = !temp[action.message as string].boldFlg;
         setFontOption((temp as any) as FontOption);
         break;
+      }
+      case 'setLargeFlg': {
+        const temp: { [key: string]: FontOptionImpl } = JSON.parse(JSON.stringify(fontOption));
+        temp[action.message as string].largeFlg = !temp[action.message as string].largeFlg;
+        setFontOption((temp as any) as FontOption);
+        break;
+      }
     }
   };
 

@@ -14,13 +14,16 @@ const TextForm: React.FC<{
 
   const onChangeText = (e: FormEvent<any>) => dispatch({ type: ('set' + dataKey) as ActionType, message: e.currentTarget.value });
   const onChangeBoldFlg = () => dispatch({ type: 'setBoldFlg', message: dataKey2 });
+  const onChangeLargeFlg = () => dispatch({ type: 'setLargeFlg', message: dataKey2 });
 
   const boldFlg = ((fontOption as any) as { [key: string]: FontOptionImpl })[dataKey2].boldFlg;
+  const largeFlg = ((fontOption as any) as { [key: string]: FontOptionImpl })[dataKey2].largeFlg;
 
   return <Form.Group>
     <Form.Label>{label}</Form.Label>
     <Form.Control value={value} onChange={onChangeText} />
     <Form.Check label="太字にする" checked={boldFlg} onChange={onChangeBoldFlg} />
+    <Form.Check label="大きめのフォントサイズにする" checked={largeFlg} onChange={onChangeLargeFlg} />
   </Form.Group>;
 };
 

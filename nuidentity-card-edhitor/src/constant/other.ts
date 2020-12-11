@@ -10,7 +10,8 @@ export type ActionType = ''
   | 'setNuiImage'
   | 'setBackgroundType'
   | 'setResizerType'
-  | 'setBoldFlg';
+  | 'setBoldFlg'
+  | 'setLargeFlg';
 
 export type BackgroundType = '86' | '07' | '12';
 export type ResizerType = 'force' | 'width' | 'height' | 'inside' | 'outside';

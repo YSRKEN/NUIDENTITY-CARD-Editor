@@ -63,17 +63,23 @@ const CardView: React.FC = () => {
         <Rect fill='white' x={719} y={138} width={IMAGE_WIDTH} height={IMAGE_HEIGHT} />
         <Image image={nuiImageData} x={719} y={138} width={IMAGE_WIDTH} height={IMAGE_HEIGHT} />
         <Image image={imageData} x={0} y={0} width={1076} height={650} />
-        <Text text={nuiRegistration} fontSize={48} x={40} y={130}
+        <Text text={nuiRegistration} x={40} y={130}
+          fontSize={48 * (fontOption.registration.largeFlg ? 1.25 : 1.0)}
           fontStyle={fontOption.registration.boldFlg ? 'bold' : undefined} />
-        <Text text={nuiName} fontSize={32} x={40} y={260}
+        <Text text={nuiName} x={40} y={260 - (fontOption.name.largeFlg ? 16 : 0)}
+          fontSize={32 * (fontOption.name.largeFlg ? 1.5 : 1.0)}
           fontStyle={fontOption.name.boldFlg ? 'bold' : undefined} />
-        <Text text={nuiDepot} fontSize={32} x={340} y={260}
+        <Text text={nuiDepot} x={340} y={260 - (fontOption.depot.largeFlg ? 16 : 0)}
+          fontSize={32 * (fontOption.depot.largeFlg ? 1.5 : 1.0)}
           fontStyle={fontOption.depot.boldFlg ? 'bold' : undefined} />
-        <Text text={nuiMastersName} fontSize={32} x={40} y={360}
+        <Text text={nuiMastersName} x={40} y={360 - (fontOption.mastersName.largeFlg ? 16 : 0)}
+          fontSize={32 * (fontOption.mastersName.largeFlg ? 1.5 : 1.0)}
           fontStyle={fontOption.mastersName.boldFlg ? 'bold' : undefined} />
-        <Text text={nuiTwitterName} fontSize={32} x={340} y={360}
+        <Text text={nuiTwitterName} x={340} y={360 - (fontOption.twitterName.largeFlg ? 16 : 0)}
+          fontSize={32 * (fontOption.twitterName.largeFlg ? 1.5 : 1.0)}
           fontStyle={fontOption.twitterName.boldFlg ? 'bold' : undefined} />
-        <Text text={nuiMemo} fontSize={32} x={40} y={460}
+        <Text text={nuiMemo} x={40} y={460 - (fontOption.memo.largeFlg ? 16 : 0)}
+          fontSize={32 * (fontOption.memo.largeFlg ? 1.5 : 1.0)}
           fontStyle={fontOption.memo.boldFlg ? 'bold' : undefined} />
       </Layer>
     </Stage>
