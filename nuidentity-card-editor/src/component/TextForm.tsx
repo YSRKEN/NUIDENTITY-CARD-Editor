@@ -3,6 +3,7 @@ import { FontOptionImpl } from "model/FontOption";
 import { FormEvent, useContext } from "react";
 import { Form } from "react-bootstrap";
 import { ApplicationContext } from "service/store";
+import { useTranslation } from 'react-i18next';
 
 const TextForm: React.FC<{
   label: string;
@@ -10,6 +11,8 @@ const TextForm: React.FC<{
   dataKey: string;
   dataKey2: string;
 }> = ({ label, value, dataKey, dataKey2 }) => {
+  const { t } = useTranslation();
+
   const { fontOption, dispatch } = useContext(ApplicationContext);
 
   const onChangeText = (e: FormEvent<any>) => dispatch({ type: ('set' + dataKey) as ActionType, message: e.currentTarget.value });
@@ -22,8 +25,8 @@ const TextForm: React.FC<{
   return <Form.Group>
     <Form.Label>{label}</Form.Label>
     <Form.Control value={value} onChange={onChangeText} />
-    <Form.Check label="太字にする" checked={boldFlg} onChange={onChangeBoldFlg} />
-    <Form.Check label="大きめのフォントサイズにする" checked={largeFlg} onChange={onChangeLargeFlg} />
+    <Form.Check label={t("太字にする")} checked={boldFlg} onChange={onChangeBoldFlg} />
+    <Form.Check label={t("大きめのフォントサイズにする")} checked={largeFlg} onChange={onChangeLargeFlg} />
   </Form.Group>;
 };
 
