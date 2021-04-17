@@ -1,4 +1,4 @@
-import { BackgroundType, DEFAULT_FONT_OPTION, ResizerType } from "constant/other";
+import { BackgroundType, NewTemplate, DEFAULT_FONT_OPTION, ResizerType } from "constant/other";
 import { Action } from "model/action";
 import { FontOption, FontOptionImpl } from "model/FontOption";
 import { ApplicationStore } from "model/store";
@@ -14,6 +14,7 @@ export const useApplicationStore = (): ApplicationStore => {
   const [nuiMemo, setNuiMemo] = useState(loadData('nuiMemo', 'ここはメモ欄です'));
   const [nuiImage, setNuiImage] = useState(loadData('nuiImage', ''));
   const [backgroundType, setBackgroundType] = useState<BackgroundType>(loadData<BackgroundType>('backgroundType', '86'));
+  const [newTemplate, setNewTemplate] = useState<NewTemplate>(loadData<NewTemplate>('newTemplate', 'TRUE'));
   const [resizerType, setResizerType] = useState<ResizerType>(loadData<ResizerType>('resizerType', 'inside'));
   const [fontOption, setFontOption] = useState<FontOption>(loadData<FontOption>('fontOption', DEFAULT_FONT_OPTION));
 
@@ -26,6 +27,7 @@ export const useApplicationStore = (): ApplicationStore => {
   useEffect(() => saveData('nuiMemo', nuiMemo), [nuiMemo]);
   useEffect(() => saveData('nuiImage', nuiImage), [nuiImage]);
   useEffect(() => saveData('backgroundType', backgroundType), [backgroundType]);
+  useEffect(() => saveData('newTemplate', newTemplate), [newTemplate]);
   useEffect(() => saveData('resizerType', resizerType), [resizerType]);
   useEffect(() => saveData('fontOption', fontOption), [fontOption]);
 
@@ -56,6 +58,9 @@ export const useApplicationStore = (): ApplicationStore => {
       case 'setBackgroundType':
         setBackgroundType(action.message as BackgroundType);
         break;
+      case 'setNewTemplate':
+        setNewTemplate(action.message as NewTemplate);
+        break;
       case 'setResizerType':
         setResizerType(action.message as ResizerType);
         break;
@@ -83,6 +88,7 @@ export const useApplicationStore = (): ApplicationStore => {
     nuiMemo,
     nuiImage,
     backgroundType,
+    newTemplate,
     resizerType,
     fontOption,
     dispatch

@@ -16,11 +16,13 @@ const InputForm: React.FC = () => {
     nuiTwitterName,
     nuiMemo,
     backgroundType,
+    newTemplate,
     resizerType,
     dispatch
   } = useContext(ApplicationContext);
 
   const onChangeBackgroundImage = (e: FormEvent<any>) => dispatch({ type: 'setBackgroundType', message: e.currentTarget.value });
+  const onChangeNewTemplate = (e: FormEvent<any>) => dispatch({ type: 'setNewTemplate', message: e.currentTarget.value });
   const onChangeResizerType = (e: FormEvent<any>) => dispatch({ type: 'setResizerType', message: e.currentTarget.value });
 
   const onChangeNuiImage = async (e: FormEvent<any>) => {
@@ -61,6 +63,13 @@ const InputForm: React.FC = () => {
         <option value="86">{t("ハチロク")}</option>
         <option value="07">{t("れいな")}</option>
         <option value="12">{t("すずしろ")}</option>
+      </Form.Control>
+    </Form.Group>
+    <Form.Group>
+      <Form.Label>{t("新しいテンプレートを使う？")}</Form.Label>
+      <Form.Control value={newTemplate} onChange={onChangeNewTemplate} as="select">
+        <option value="TRUE">{t("はい")}</option>
+        <option value="FALSE">{t("いいえ")}</option>
       </Form.Control>
     </Form.Group>
     <Form.Group>

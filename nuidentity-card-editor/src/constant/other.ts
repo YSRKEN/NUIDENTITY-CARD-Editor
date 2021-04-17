@@ -9,11 +9,13 @@ export type ActionType = ''
   | 'setNuiMemo'
   | 'setNuiImage'
   | 'setBackgroundType'
+  | 'setNewTemplate'
   | 'setResizerType'
   | 'setBoldFlg'
   | 'setLargeFlg';
 
 export type BackgroundType = '86' | '07' | '12';
+export type NewTemplate = 'TRUE' | 'FALSE';
 export type ResizerType = 'force' | 'width' | 'height' | 'inside' | 'outside';
 
 export const MESSAGE_WIDTH = 1076;
