@@ -5,7 +5,12 @@ import InputForm from "container/InputForm";
 import CardView from "container/CardView";
 
 const MainForm: React.FC = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const changeLanguage = (lang : string) => i18n.changeLanguage(lang);
+  const btnLinkStyleOverrides = {
+    margin: "0px !important",
+    padding: "0px !important"
+  }
 
   return <Container>
     <Row className="my-3">
@@ -16,10 +21,11 @@ const MainForm: React.FC = () => {
     </Row>
     <Row className="my-3">
       <Col className="text-center">
-        <span className="d-inline-block mr-3">Ver.1.2.0</span>
+      <span className="d-inline-block mr-3">Ver.1.2.0</span>
         <span className="d-inline-block mr-3"><a href="https://github.com/YSRKEN/NUIDENTITY-CARD-Editor" rel="noreferrer" target="_blank">{t("GitHub")}</a></span>
         <span className="d-inline-block mr-3"><a href="https://twitter.com/sin_kou_hyou/status/985448725026762752" rel="noreferrer" target="_blank">{t("背景テンプレ画像の出典")}</a></span>
-        <span><a href="https://twitter.com/YSRKEN" rel="noreferrer" target="_blank">{t("ツール作者のTwitter")}</a></span>
+        <span className="d-inline-block mr-3"><a href="https://twitter.com/YSRKEN" rel="noreferrer" target="_blank">{t("ツール作者のTwitter")}</a></span>
+        <span className="d-inline-block mr-3"><a href="https://github.com/late-in-autumn" rel="noreferrer" target="_blank">{t("翻訳者のGitHub")}</a></span>
       </Col>
     </Row>
     <Row className="my-3">
@@ -32,6 +38,13 @@ const MainForm: React.FC = () => {
             <CardView />
           </Tab>
         </Tabs>
+      </Col>
+    </Row>
+    <Row className="my-3">
+      <Col className="text-center">
+        <span className="d-inline-block mr-3"><button className="btn btn-link" style={btnLinkStyleOverrides} onClick={() => changeLanguage("en")}>English</button></span>
+        <span className="d-inline-block mr-3"><button className="btn btn-link" style={btnLinkStyleOverrides} onClick={() => changeLanguage("ja")}>日本語</button></span>
+        <span className="d-inline-block mr-3"><button className="btn btn-link" style={btnLinkStyleOverrides} onClick={() => changeLanguage("zh-CN")}>简体中文</button></span>
       </Col>
     </Row>
   </Container>
