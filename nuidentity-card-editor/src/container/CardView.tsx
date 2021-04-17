@@ -8,8 +8,11 @@ import card12 from 'asset/nuid_temple_12.png';
 import { IMAGE_HEIGHT, IMAGE_WIDTH, MESSAGE_HEIGHT, MESSAGE_WIDTH } from "constant/other";
 import { Button, Form } from "react-bootstrap";
 import { Stage as StageType } from 'konva/types/Stage';
+import { useTranslation } from 'react-i18next';
 
 const CardView: React.FC = () => {
+  const { t } = useTranslation();
+  
   const {
     nuiRegistration,
     nuiName,
@@ -54,7 +57,7 @@ const CardView: React.FC = () => {
   return <>
     <Form className="mb-3">
       <Form.Group className="d-none d-sm-inline">
-        <Button className="mr-3" onClick={save}>保存</Button>
+        <Button className="mr-3" onClick={save}>{t("保存")}</Button>
       </Form.Group>
     </Form>
     <Stage ref={stageRef} scale={{ x: scale, y: scale }} width={MESSAGE_WIDTH * scale} height={MESSAGE_HEIGHT * scale} className="mx-auto"

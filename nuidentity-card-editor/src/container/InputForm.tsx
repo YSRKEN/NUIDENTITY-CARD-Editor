@@ -3,8 +3,11 @@ import React, { FormEvent, useContext } from "react";
 import { Form } from "react-bootstrap";
 import { ApplicationContext } from "service/store";
 import { resizeImage } from "service/utility";
+import { useTranslation } from 'react-i18next';
 
 const InputForm: React.FC = () => {
+  const { t } = useTranslation();
+
   const {
     nuiRegistration,
     nuiName,
@@ -46,32 +49,32 @@ const InputForm: React.FC = () => {
   };
 
   return <Form>
-    <TextForm label="車体番号" value={nuiRegistration} dataKey="NuiRegistration" dataKey2="registration" />
-    <TextForm label="ぬいの名称" value={nuiName} dataKey="NuiName" dataKey2="name" />
-    <TextForm label="車両基地名" value={nuiDepot} dataKey="NuiDepot" dataKey2="depot" />
-    <TextForm label="マスターの名称" value={nuiMastersName} dataKey="NuiMastersName" dataKey2="mastersName" />
-    <TextForm label="@スクリーンネーム" value={nuiTwitterName} dataKey="NuiTwitterName" dataKey2="twitterName" />
-    <TextForm label="メモ欄" value={nuiMemo} dataKey="NuiMemo" dataKey2="memo" />
+    <TextForm label={t("車体番号")} value={nuiRegistration} dataKey="NuiRegistration" dataKey2="registration" />
+    <TextForm label={t("ぬいの名称")} value={nuiName} dataKey="NuiName" dataKey2="name" />
+    <TextForm label={t("車両基地名")} value={nuiDepot} dataKey="NuiDepot" dataKey2="depot" />
+    <TextForm label={t("マスターの名称")} value={nuiMastersName} dataKey="NuiMastersName" dataKey2="mastersName" />
+    <TextForm label={t("@スクリーンネーム")} value={nuiTwitterName} dataKey="NuiTwitterName" dataKey2="twitterName" />
+    <TextForm label={t("メモ欄")} value={nuiMemo} dataKey="NuiMemo" dataKey2="memo" />
     <Form.Group>
-      <Form.Label>背景の種類</Form.Label>
+      <Form.Label>{t("背景の種類")}</Form.Label>
       <Form.Control value={backgroundType} onChange={onChangeBackgroundImage} as="select">
-        <option value="86">ハチロク</option>
-        <option value="07">れいな</option>
-        <option value="12">すずしろ</option>
+        <option value="86">{t("ハチロク")}</option>
+        <option value="07">{t("れいな")}</option>
+        <option value="12">{t("すずしろ")}</option>
       </Form.Control>
     </Form.Group>
     <Form.Group>
-      <Form.Label>読み込み時の画像のリサイズ方法</Form.Label>
+      <Form.Label>{t("読み込み時の画像のリサイズ方法")}</Form.Label>
       <Form.Control value={resizerType} onChange={onChangeResizerType} as="select">
-        <option value="force">縦横比を無視して縦・横を合わせる</option>
-        <option value="width">横の幅を合わせる</option>
-        <option value="height">縦の幅を合わせる</option>
-        <option value="inside">枠に対して内接するように合わせる</option>
-        <option value="outside">枠に対して外接するように合わせる</option>
+        <option value="force">{t("縦横比を無視して縦・横を合わせる")}</option>
+        <option value="width">{t("横の幅を合わせる")}</option>
+        <option value="height">{t("縦の幅を合わせる")}</option>
+        <option value="inside">{t("枠に対して内接するように合わせる")}</option>
+        <option value="outside">{t("枠に対して外接するように合わせる")}</option>
       </Form.Control>
     </Form.Group>
     <Form.Group>
-      <Form.File label="画像ファイルを指定" onChange={onChangeNuiImage} />
+      <Form.File label={t("画像ファイルを指定")} onChange={onChangeNuiImage} />
     </Form.Group>
   </Form>;
 };
