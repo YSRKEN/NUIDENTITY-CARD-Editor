@@ -8,8 +8,8 @@ const MainForm: React.FC = () => {
   const { t, i18n } = useTranslation();
   const changeLanguage = (lang : string) => i18n.changeLanguage(lang);
   const btnLinkStyleOverrides = {
-    margin: "0px !important",
-    padding: "0px !important"
+    margin: "0px",
+    padding: "0px"
   }
 
   return <Container>
