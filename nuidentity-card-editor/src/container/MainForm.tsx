@@ -6,7 +6,7 @@ import CardView from "container/CardView";
 
 const MainForm: React.FC = () => {
   const { t, i18n } = useTranslation();
-  const changeLanguage = (lang : string) => i18n.changeLanguage(lang);
+  const changeLanguage = (lang: string) => i18n.changeLanguage(lang);
   const btnLinkStyleOverrides = {
     margin: "0px",
     padding: "0px"
@@ -21,7 +21,7 @@ const MainForm: React.FC = () => {
     </Row>
     <Row className="my-3">
       <Col className="text-center">
-        <span className="d-inline-block mr-3">Ver.1.2.0</span>
+        <span className="d-inline-block mr-3">Ver.2.0.0</span>
       </Col>
     </Row>
     <Row className="my-3">
