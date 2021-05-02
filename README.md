@@ -22,3 +22,6 @@
 
 - 上記で[配布されているデータ](https://t.co/Lc5kNq1uRi)は、png 形式、および ai 形式の画像です
 - 当 Web アプリケーションでは、上記データを参照しつつ、利用しやすいように一部修正を施しています
+- Ver.1.2.0 から搭載された「すずしろ」テーマは、上記データと次の方のツイートを参考に、[#ぬいすず](https://twitter.com/rail_romanesque/status/1333002766633955328)向けに実装しました
+
+<blockquote class="twitter-tweet"><p lang="ja" dir="ltr">ぬいすずしろのNUIDENTITY CARD作った<a href="https://t.co/2G86iyiPln">https://t.co/2G86iyiPln</a> <a href="https://t.co/pGHXwbR4ga">pic.twitter.com/pGHXwbR4ga</a></p>&mdash; 秀兄ぃ💴＠御一夜市市民部環境課 (@hideyans) <a href="https://twitter.com/hideyans/status/1057403558633496576?ref_src=twsrc%5Etfw">October 30, 2018</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
